@@ -32,7 +32,6 @@ window.addEventListener('onWidgetLoad', obj => {
     if (devMod) sendTestMessage(20)
 })
 
-
 // -----------------------
 //    Message Component
 // -----------------------
@@ -116,157 +115,177 @@ class Message {
                 this.#chat.remove()
             }, FieldData.lifetime * 1000)
     }
+}
 
 // --------------------
 //    Event Handlers
 // --------------------
 
 window.addEventListener('onEventReceived', obj => {
-    const { listener, event } = obj.detail
-    switch(listener) {
-      case 'message': onMessage(event)
-        break
-      case 'delete-message': deleteMessage(event.msgId)
-        break
-      case 'delete-messages': deleteMessages(event.userId)
-        break
-      case 'event:test': onButton(event)
-        break
-      default: return
-    }
+  const { listener, event } = obj.detail
+  switch(listener) {
+    case 'message': onMessage(event)
+      break
+    case 'delete-message': deleteMessage(event.msgId)
+      break
+    case 'delete-messages': deleteMessages(event.userId)
+      break
+    case 'event:test': onButton(event)
+      break
+    default: return
+  }
 })
-
 
 // ---------------------
 //    Event Functions
 // ---------------------
 
 function onMessage(event) {
+  	// filters
+  	if (hasIgnoredPrefix(event.data.text)) return
+  	if (hasIgnoredUser(event.data.displayName)) return
+  
+  	// Message creation and post
     const msg = new Message(event.data, document.querySelector('chatbox'))
-    if (FieldData.displayBadge) msg.addBadges()
     if (FieldData.displayEmote) msg.addEmotes()
+    if (FieldData.displayBadge) msg.addBadges()
     msg.postMessage()
 }
 
 function deleteMessage(msgId) {
-    document.querySelector(`chat[data-message-id="${msgId}"]`).remove()
+  	document.querySelector(`chat[data-message-id="${msgId}"]`).remove()
 }
 
 function deleteMessages(userId) {
-    document.querySelectorAll(`chat[data-user-id="${userId}"]`).forEach(e => e.remove());
+  	document.querySelectorAll(`chat[data-user-id="${userId}"]`).forEach(e => e.remove());
 }
 
 function onButton(event) {
-    const { listener, field, value } = event
+  const { listener, field, value } = event
 
-    if (listener !== 'widget-button' || value !== 'Ayato-san_AdaptiveChat') return
-  
-    switch(field) {
-      case 'testMessageButton': sendTestMessage()
-        break
-      default: return
-    }
+  if (listener !== 'widget-button' || value !== 'Ayato-san_AdaptiveChat') return
+
+  switch(field) {
+    case 'testMessageButton': sendTestMessage()
+      break
+    default: return
+  }
 }
+
 function sendTestMessage(amount = 1) {
-    if (devMod) console.log("send " + amount + " test message" + (amount > 1 ? "s" : ""));
-    for (let i = 0; i < amount; i++) {
-      window.setTimeout(_ => {
-        const name = `user_${random(1, 10).toString()}`
-  
-        const event = {
-          data: {
-            badges: [],
-            channel: '',
-            displayColor: '',
-            displayName: name,
-            emotes: [],
-            isAction: false,
-            msgId: `${name}_${Date.now()}`,
-            nick: '',
-            tags: {},
-            text: 'test',
-            userId: name,
-          }
+  if (devMod) console.log("send " + amount + " test message" + (amount > 1 ? "s" : ""));
+  for (let i = 0; i < amount; i++) {
+    window.setTimeout(_ => {
+      const name = `user_${random(1, 10).toString()}`
+
+      const event = {
+        data: {
+          badges: [],
+          channel: '',
+          displayColor: '',
+          displayName: name,
+          emotes: [],
+          isAction: false,
+          msgId: `${name}_${Date.now()}`,
+          nick: '',
+          tags: {},
+          text: 'test',
+          userId: name,
         }
-  
-        const previewMessage = FieldData.previewMessage.trim()
-        if (previewMessage !== '') {
-          event.data.text = previewMessage
-        } else {
-          var text = ''
-          for (let index = 0; index < random(2, 50); index++) {
-              switch (random(0, 5)) {
-                  case 0:
-                  case 1:
-                  case 2:
-                  case 3:
-                      text += MESSAGES[random(0, MESSAGES.length - 1)] + ' '
-                      break
-                  default:
-                      let emote
-                      try {
-                          emote = EMOTES[random(0, EMOTES.length - 1)]
-                          text += emote.name + ' '
-                          event.data.emotes.push(emote)
-                      } catch (error) {
-                          console.log(error)
-                      }
-              }
-          }
-          event.data.text = text
+      }
+
+      const previewMessage = FieldData.previewMessage.trim()
+      if (previewMessage !== '') {
+        event.data.text = previewMessage
+      } else {
+        var text = ''
+        for (let index = 0; index < random(2, 50); index++) {
+            switch (random(0, 5)) {
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                    text += MESSAGES[random(0, MESSAGES.length - 1)] + ' '
+                    break
+                default:
+                    let emote
+                    try {
+                        emote = EMOTES[random(0, EMOTES.length - 1)]
+                        text += emote.name + ' '
+                        event.data.emotes.push(emote)
+                    } catch (error) {
+                        console.log(error)
+                    }
+            }
         }
-        for (let i = 0; i <= random(0, 10); i++) {
-          let badge = {}
-          do {
-            badge = BADGES[random(0, BADGES.length - 1)]
-          } while (event.data.badges.includes(badge))
-            event.data.badges.push(badge)
-        }
-        onMessage(event)
-      }, i * random(10,2000))
+        event.data.text = text
+      }
+      for (let i = 0; i <= random(0, 10); i++) {
+        let badge = {}
+        do {
+          badge = BADGES[random(0, BADGES.length - 1)]
+        } while (event.data.badges.includes(badge))
+          event.data.badges.push(badge)
+      }
+      onMessage(event)
+    }, i * random(10,2000))
+  }
+}
+
+// ---------------------
+//    Helper Functions
+// ---------------------
+
+function htmlEncode(text) {
+    return text.replace(/[\<\>\"\'\^\=]/g, char => `&#${char.charCodeAt(0)};`).trim()
+}
+
+function loadFieldData(data) {
+    FieldData = data
+    processFieldData(
+        value => stringToArray(value),
+        'ignoreUserList',
+        'ignorePrefixList'
+    )
+    processFieldData(
+        value => value === 'true',
+        'displayBadge',
+        'displayBorder',
+        'displayEmote',
+        'useCustomUserColor',
+        'deleteMessage'
+    )
+}
+
+function processFieldData(process, ...keys) {
+    for (const key of keys) { FieldData[key] = process(FieldData[key]) }
+}
+
+function stringToArray(string = '', separator = ',') {
+    return string.split(separator).reduce((acc, value) => {
+        const trimmed = value.trim()
+        if (trimmed !== '') acc.push(trimmed)
+        return acc
+    }, [])
+}
+
+function random(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
+function hasIgnoredPrefix(text) {
+    for (const prefix of FieldData.ignorePrefixList) {
+        if (text.startsWith(prefix)) return true
     }
-  }
-  
-  // ---------------------
-  //    Helper Functions
-  // ---------------------
-  
-  function htmlEncode(text) {
-      return text.replace(/[\<\>\"\'\^\=]/g, char => `&#${char.charCodeAt(0)};`).trim()
-  }
-  
-  function loadFieldData(data) {
-      FieldData = data
-      processFieldData(
-          value => stringToArray(value),
-          'ignoreUserList',
-          'ignorePrefixList'
-      )
-      processFieldData(
-          value => value === 'true',
-          'displayBadge',
-          'displayBorder',
-          'displayEmote',
-          'useCustomUserColor',
-          'deleteMessage'
-      )
-  }
-  
-  function processFieldData(process, ...keys) {
-      for (const key of keys) { FieldData[key] = process(FieldData[key]) }
-  }
-  
-  function stringToArray(string = '', separator = ',') {
-      return string.split(separator).reduce((acc, value) => {
-          const trimmed = value.trim()
-          if (trimmed !== '') acc.push(trimmed)
-          return acc
-      }, [])
-  }
-  
-  function random(min, max) {
-      return Math.floor(Math.random() * (max - min + 1)) + min
-  }
+    return false
+}
+
+function hasIgnoredUser(user) {
+    for (const ignored of FieldData.ignoreUserList) {
+        if (user.toLowerCase() == ignored.toLowerCase()) return true
+    }
+    return false
+}
 
 function generateColor(name) {
     if (!name) return COLORS[11]

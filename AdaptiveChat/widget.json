@@ -216,7 +216,7 @@
         "min": 0
     },
     "widgetName": {
-        "label": "[Adaptive Chat - v1.1.7]",
+        "label": "[Adaptive Chat - v1.1.8]",
         "group": "About",
         "type": "hidden",
         "value": "Adaptive Chat"
@@ -231,7 +231,7 @@
         "label": "Twitch - www.twitch.tv/ayat0_san_",
         "group": "About",
         "type": "hidden",
-        "value": "1.1.7"
+        "value": "1.1.8"
     },
     "widgetUpdateUrl": {
         "label": "Instagram - @ayat0_san",
