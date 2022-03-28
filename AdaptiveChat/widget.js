@@ -59,6 +59,16 @@ class Message {
         this.#appendItems()
     }
 
+    /** Displays badges of the chater */
+    addBadges() {
+        for (let i = 0; i < FieldData.maxBadges && i < this.data.badges.length; i++) {
+            const img = document.createElement('img')
+            img.src = this.data.badges[i].url
+            img.alt = htmlEncode(this.data.badges[i].type)
+            this.#badges.appendChild(img)
+        }
+    }
+
     #appendItems() {
         this.#chat.appendChild(this.#header)
         this.#chat.appendChild(this.#message)
@@ -112,6 +122,7 @@ window.addEventListener('onEventReceived', obj => {
 
 function onMessage(event) {
     const msg = new Message(event.data, document.querySelector('chatbox'))
+    if (FieldData.displayBadge) msg.addBadges()
     msg.postMessage()
 }
 

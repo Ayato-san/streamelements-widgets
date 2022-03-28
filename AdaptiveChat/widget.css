@@ -94,6 +94,14 @@ chatbox chat header username {
   font-weight: bold;
   margin: 0 5px;
 }
+chatbox chat header badges {
+  margin-bottom: -0.2em;
+  margin-right: 5px;
+}
+chatbox chat header badges img {
+  height: 1.5em;
+  margin: 0 0.25ch;
+}
 
 /* --- [Message] --- */
 chatbox chat message {
