@@ -115,9 +115,13 @@ function onMessage(event) {
     msg.postMessage()
 }
 
-function deleteMessage(msgId) {}
+function deleteMessage(msgId) {
+    document.querySelector(`chat[data-message-id="${msgId}"]`).remove()
+}
 
-function deleteMessages(userId) {}
+function deleteMessages(userId) {
+    document.querySelectorAll(`chat[data-user-id="${userId}"]`).forEach(e => e.remove());
+}
 
 function onButton(event) {
     const { listener, field, value } = event
