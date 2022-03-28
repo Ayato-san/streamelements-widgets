@@ -62,6 +62,10 @@ chatbox.wrap message {
   -webkit-animation: wrap {animationDuration}s ease-in-out;
           animation: wrap {animationDuration}s ease-in-out;
 }
+chatbox.pop chat {
+  -webkit-animation: pop {animationDuration}s ease-in-out;
+          animation: pop {animationDuration}s ease-in-out;
+}
 chatbox chat {
   display: flex;
   flex-direction: column;
@@ -102,4 +106,30 @@ chatbox chat message {
 @keyframes wrap {
   0% { max-height: 0 }
   100% { max-height: 100vmin; }
+}
+@-webkit-keyframes pop {
+  0% { 
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes pop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
 }
