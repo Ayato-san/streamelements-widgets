@@ -1,4 +1,62 @@
 {
+    "chatDirection": {
+        "label": "Chat direction",
+        "group": "Chat Styles",
+        "type": "dropdown",
+        "value": "bottom2Top",
+        "options": {
+            "bottom2Top": "Bottom to Top",
+            "top2Bottom": "Top to Bottom"
+        }
+    },
+    "cornerType": {
+        "label": "Corner type",
+        "group": "Chat Styles",
+        "type": "dropdown",
+        "value": "round",
+        "options": {
+            "round": "Round",
+            "square": "Square"
+        }
+    },
+    "cornerRadius": {
+        "label": "Corner radius (px)",
+        "group": "Chat Styles",
+        "value": 5,
+        "step": 0.1,
+        "min": 0
+    },
+    "displayBorder": {
+        "label": "Display border ?",
+        "group": "Chat Styles",
+        "type": "dropdown",
+        "value": "true",
+        "options": {
+            "true": "Yes",
+            "false": "No"
+        }
+    },
+    "appearAnimation": {
+        "label": "Appear animation",
+        "group": "Chat Animation",
+        "type": "dropdown",
+        "value": "wrap",
+        "options": {
+            "wrap": "Wrap",
+            "pop": "Pop",
+            "spin": "Spin",
+            "fade": "Fade",
+            "none": "None"
+        }
+    },
+    "animationDuration": {
+        "label": "Animation Duration (seconds)",
+        "group": "Chat Animation",
+        "type": "number",
+        "value": 1,
+        "step": 0.1,
+        "min": 0
+    },
     "googleFont": {
         "label": "Select a Google font",
         "group": "Message Styles",
@@ -46,7 +104,7 @@
         "value": "#000000AF"
     },
     "widgetName": {
-        "label": "[Adaptive Chat - v1.0.9]",
+        "label": "[Adaptive Chat - v1.1.1]",
         "group": "About",
         "type": "hidden",
         "value": "Adaptive Chat"
@@ -61,7 +119,7 @@
         "label": "Twitch - www.twitch.tv/ayat0_san_",
         "group": "About",
         "type": "hidden",
-        "value": "1.0.1"
+        "value": "1.1.1"
     },
     "widgetUpdateUrl": {
         "label": "Instagram - @ayat0_san",
