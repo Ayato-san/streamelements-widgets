@@ -32,6 +32,16 @@ chatbox.top2Bottom chat:last-of-type {
 chatbox.top2Bottom chat:first-of-type {
   margin-bottom: 0;
 }
+chatbox.bottom2Top {
+  flex-direction: column;
+  justify-content: flex-end;
+}
+chatbox.bottom2Top chat:last-of-type {
+  margin-bottom: 0;
+}
+chatbox.bottom2Top chat:first-of-type {
+  margin-top: 0;
+}
 chatbox chat {
   display: flex;
   flex-direction: column;
