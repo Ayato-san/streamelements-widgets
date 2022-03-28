@@ -58,6 +58,10 @@ chatbox.round chat message {
   border-bottom-left-radius: {cornerRadius}px;
   border-bottom-right-radius: {cornerRadius}px;
 }
+chatbox.wrap message {
+  -webkit-animation: wrap {animationDuration}s ease-in-out;
+          animation: wrap {animationDuration}s ease-in-out;
+}
 chatbox chat {
   display: flex;
   flex-direction: column;
@@ -88,4 +92,14 @@ chatbox chat message {
   overflow-wrap: break-word;
   background: {messageBackground};
   vertical-align: top;
+}
+
+/* --- [Animations] --- */
+@-webkit-keyframes wrap {
+  0% { max-height: 0; }
+  100% { max-height: 100vmin; }
+}
+@keyframes wrap {
+  0% { max-height: 0 }
+  100% { max-height: 100vmin; }
 }
