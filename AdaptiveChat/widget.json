@@ -1,0 +1,242 @@
+{
+    "testMessageButton": {
+        "label": "Send Test Message",
+        "group": "Preview",
+        "type": "button",
+        "value": "Ayato-san_AdaptiveChat"
+    },
+    "previewMessage": {
+        "label": "Custom Message (No Emotes)",
+        "group": "Preview",
+        "type": "text",
+        "value": ""
+    },
+    "ignoreUserListLabel": {
+        "label": "Ignore these users:",
+        "group": "Filters",
+        "type": "hidden"
+    },
+    "ignoreUserList": {
+        "label": "(Comma Separated)",
+        "group": "Filters",
+        "type": "text",
+        "value": "StreamElements, Streamlabs, Nightbot"
+    },
+    "ignorePrefixListLabel": {
+        "label": "Ignore messages that start with:",
+        "group": "Filters",
+        "type": "hidden"
+    },
+    "ignorePrefixList": {
+        "label": "(Comma Separated)",
+        "group": "Filters",
+        "type": "text",
+        "value": "!"
+    },
+    "chatDirection": {
+        "label": "Chat direction",
+        "group": "Chat Styles",
+        "type": "dropdown",
+        "value": "bottom2Top",
+        "options": {
+            "bottom2Top": "Bottom to Top",
+            "top2Bottom": "Top to Bottom"
+        }
+    },
+    "marginChat": {
+        "label": "Margin between each messages (px)",
+        "group": "Chat Styles",
+        "type": "number",
+        "value": 5,
+        "step": 0.1,
+        "min": 0
+    },
+    "displayBadge": {
+        "label": "Display Badges ?",
+        "group": "Chat Styles",
+        "type": "dropdown",
+        "value": "true",
+        "options": {
+            "true": "Yes",
+            "false": "No"
+        }
+    },
+    "maxBadges": {
+        "label": "Max number of badges displayed",
+        "group": "Chat Styles",
+        "type": "number",
+        "value": 5,
+        "step": 1,
+        "min": 1
+    },
+    "cornerType": {
+        "label": "Corner type",
+        "group": "Chat Styles",
+        "type": "dropdown",
+        "value": "round",
+        "options": {
+            "round": "Round",
+            "square": "Square"
+        }
+    },
+    "cornerRadius": {
+        "label": "Corner radius (px)",
+        "group": "Chat Styles",
+        "value": 5,
+        "step": 0.1,
+        "min": 0
+    },
+    "displayBorder": {
+        "label": "Display border ?",
+        "group": "Chat Styles",
+        "type": "dropdown",
+        "value": "true",
+        "options": {
+            "true": "Yes",
+            "false": "No"
+        }
+    },
+    "borderWidth": {
+        "label": "Border width (px)",
+        "group": "Chat Styles",
+        "type": "number",
+        "value": 2,
+        "step": 1,
+        "min": 1
+    },
+    "appearAnimation": {
+        "label": "Appear animation",
+        "group": "Chat Animation",
+        "type": "dropdown",
+        "value": "wrap",
+        "options": {
+            "wrap": "Wrap",
+            "pop": "Pop",
+            "spin": "Spin",
+            "fade": "Fade",
+            "none": "None"
+        }
+    },
+    "animationDuration": {
+        "label": "Animation Duration (seconds)",
+        "group": "Chat Animation",
+        "type": "number",
+        "value": 1,
+        "step": 0.1,
+        "min": 0
+    },
+    "displayEmote": {
+        "label": "Display Emotes ?",
+        "group": "Message Styles",
+        "type": "dropdown",
+        "value": "true",
+        "options": {
+            "true": "Yes",
+            "false": "No"
+        }
+    },
+    "googleFont": {
+        "label": "Select a Google font",
+        "group": "Message Styles",
+        "type": "googleFont",
+        "value": "Poppins"
+    },
+    "customFont": {
+        "label": "Custom Font Name",
+        "group": "Message Styles",
+        "type": "text",
+        "value": ""
+    },
+    "usernameSize": {
+        "label": "Username font size (px)",
+        "group": "Message Styles",
+        "type": "number",
+        "value": 16,
+        "step": 1,
+        "min": 1
+    },
+    "messageSize": {
+        "label": "Message font size (px)",
+        "group": "Message Styles",
+        "type": "number",
+        "value": 16,
+        "step": 1,
+        "min": 1
+    },
+    "messageBackground": {
+        "label": "Message Background color",
+        "group": "Messages Color",
+        "type": "colorpicker",
+        "value": "#0000007F"
+    },
+    "messageColor": {
+        "label": "Message color",
+        "group": "Messages Color",
+        "type": "colorpicker",
+        "value": "#FFFFFF"
+    },
+    "chatBackground": {
+        "label": "Header and border Background color",
+        "group": "Messages Color",
+        "type": "colorpicker",
+        "value": "#000000AF"
+    },
+    "useCustomUserColor": {
+        "label": "Use custom username color ?",
+        "group": "Messages Color",
+        "type": "dropdown",
+        "value": "false",
+        "options": {
+            "true": "Yes",
+            "false": "No"
+        }
+    },
+    "customUserColor": {
+        "label": "Custom usename color",
+        "group": "Messages Color",
+        "type": "colorpicker",
+        "value": "#FFFFFF"
+    },
+    "deleteMessage": {
+        "label": "Delete messages",
+        "group": "Timing",
+        "type": "dropdown",
+        "value": "true",
+        "options": {
+            "true": "Yes",
+            "false": "No"
+        }
+    },
+    "lifetime": {
+        "label": "Message life time (seconds)",
+        "group": "Timing",
+        "type": "number",
+        "value": 10,
+        "step": 1,
+        "min": 0
+    },
+    "widgetName": {
+        "label": "[Adaptive Chat - v1.1.8]",
+        "group": "About",
+        "type": "hidden",
+        "value": "Adaptive Chat"
+    },
+    "widgetAuthor": {
+        "label": "Created by Ayato-san",
+        "group": "About",
+        "type": "hidden",
+        "value": "Ayato-san"
+    },
+    "widgetVersion": {
+        "label": "Twitch - www.twitch.tv/ayat0_san_",
+        "group": "About",
+        "type": "hidden",
+        "value": "1.1.8"
+    },
+    "widgetUpdateUrl": {
+        "label": "Instagram - @ayat0_san",
+        "group": "About",
+        "type": "hidden",
+        "value": "https://github.com/Ayato-san/streamelements-widgets/tree/main/AdaptiveChat"
+    }
+}
