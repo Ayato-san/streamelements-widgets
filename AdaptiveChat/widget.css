@@ -42,6 +42,14 @@ chatbox.bottom2Top chat:last-of-type {
 chatbox.bottom2Top chat:first-of-type {
   margin-top: 0;
 }
+chatbox.bordered chat header {
+  border: solid {borderWidth}px {chatBackground};
+  border-bottom: none;
+}
+chatbox.bordered chat message {
+  border: solid {borderWidth}px {chatBackground};
+  border-top: none;
+}
 chatbox.round chat header {
   border-top-left-radius: {cornerRadius}px;
   border-top-right-radius: {cornerRadius}px;
