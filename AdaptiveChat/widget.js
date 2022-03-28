@@ -110,17 +110,126 @@ window.addEventListener('onEventReceived', obj => {
 //    Event Functions
 // ---------------------
 
-function onMessage(event) {}
+function onMessage(event) {
+    const msg = new Message(event.data, document.querySelector('chatbox'))
+    msg.postMessage()
+}
 
 function deleteMessage(msgId) {}
 
 function deleteMessages(userId) {}
 
-function onButton(event) {}
+function onButton(event) {
+    const { listener, field, value } = event
 
-// ---------------------
-//    Helper Functions
-// ---------------------
+    if (listener !== 'widget-button' || value !== 'Ayato-san_AdaptiveChat') return
+  
+    switch(field) {
+      case 'testMessageButton': sendTestMessage()
+        break
+      default: return
+    }
+}
+function sendTestMessage(amount = 1) {
+    if (devMod) console.log("send " + amount + " test message" + (amount > 1 ? "s" : ""));
+    for (let i = 0; i < amount; i++) {
+      window.setTimeout(_ => {
+        const name = `user_${random(1, 10).toString()}`
+  
+        const event = {
+          data: {
+            badges: [],
+            channel: '',
+            displayColor: '',
+            displayName: name,
+            emotes: [],
+            isAction: false,
+            msgId: `${name}_${Date.now()}`,
+            nick: '',
+            tags: {},
+            text: 'test',
+            userId: name,
+          }
+        }
+  
+        const previewMessage = FieldData.previewMessage.trim()
+        if (previewMessage !== '') {
+          event.data.text = previewMessage
+        } else {
+          var text = ''
+          for (let index = 0; index < random(2, 50); index++) {
+              switch (random(0, 5)) {
+                  case 0:
+                  case 1:
+                  case 2:
+                  case 3:
+                      text += MESSAGES[random(0, MESSAGES.length - 1)] + ' '
+                      break
+                  default:
+                      let emote
+                      try {
+                          emote = EMOTES[random(0, EMOTES.length - 1)]
+                          text += emote.name + ' '
+                          event.data.emotes.push(emote)
+                      } catch (error) {
+                          console.log(error)
+                      }
+              }
+          }
+          event.data.text = text
+        }
+        for (let i = 0; i <= random(0, 10); i++) {
+          let badge = {}
+          do {
+            badge = BADGES[random(0, BADGES.length - 1)]
+          } while (event.data.badges.includes(badge))
+            event.data.badges.push(badge)
+        }
+        onMessage(event)
+      }, i * random(10,2000))
+    }
+  }
+  
+  // ---------------------
+  //    Helper Functions
+  // ---------------------
+  
+  function htmlEncode(text) {
+      return text.replace(/[\<\>\"\'\^\=]/g, char => `&#${char.charCodeAt(0)};`).trim()
+  }
+  
+  function loadFieldData(data) {
+      FieldData = data
+      processFieldData(
+          value => stringToArray(value),
+          'ignoreUserList',
+          'ignorePrefixList'
+      )
+      processFieldData(
+          value => value === 'true',
+          'displayBadge',
+          'displayBorder',
+          'displayEmote',
+          'useCustomUserColor',
+          'deleteMessage'
+      )
+  }
+  
+  function processFieldData(process, ...keys) {
+      for (const key of keys) { FieldData[key] = process(FieldData[key]) }
+  }
+  
+  function stringToArray(string = '', separator = ',') {
+      return string.split(separator).reduce((acc, value) => {
+          const trimmed = value.trim()
+          if (trimmed !== '') acc.push(trimmed)
+          return acc
+      }, [])
+  }
+  
+  function random(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min
+  }
 
 function generateColor(name) {
     if (!name) return COLORS[11]
