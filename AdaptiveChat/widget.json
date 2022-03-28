@@ -46,7 +46,7 @@
         "value": "#000000AF"
     },
     "widgetName": {
-        "label": "[Adaptive Chat - v1.0.1]",
+        "label": "[Adaptive Chat - v1.0.2]",
         "group": "About",
         "type": "hidden",
         "value": "Adaptive Chat"

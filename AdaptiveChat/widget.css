@@ -22,6 +22,16 @@ chatbox {
   display: flex;
   overflow: hidden;
 }
+chatbox.top2Bottom {
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+}
+chatbox.top2Bottom chat:last-of-type {
+  margin-top: 0;
+}
+chatbox.top2Bottom chat:first-of-type {
+  margin-bottom: 0;
+}
 chatbox chat {
   display: flex;
   flex-direction: column;
