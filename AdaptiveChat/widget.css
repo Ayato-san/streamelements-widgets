@@ -66,6 +66,10 @@ chatbox.pop chat {
   -webkit-animation: pop {animationDuration}s ease-in-out;
           animation: pop {animationDuration}s ease-in-out;
 }
+chatbox.spin chat {
+  -webkit-animation: spin {animationDuration}s ease-in-out;
+          animation: spin {animationDuration}s ease-in-out;
+}
 chatbox chat {
   display: flex;
   flex-direction: column;
@@ -131,5 +135,27 @@ chatbox chat message {
   }
   100% {
     transform: scale(1);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    transform: rotateX(90deg);
+  }
+  70% {
+    transform: rotateX(-40deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotateX(90deg);
+  }
+  70% {
+    transform: rotateX(-40deg);
+  }
+  100% {
+    transform: rotateX(0deg);
   }
 }
