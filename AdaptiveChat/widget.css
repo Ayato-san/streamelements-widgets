@@ -113,6 +113,12 @@ chatbox chat message {
   background: {messageBackground};
   vertical-align: top;
 }
+chatbox chat message img {
+  height: 2em;
+  margin-left: 0.25ch;
+  margin-right: 0.25ch;
+  vertical-align: bottom;
+}
 
 /* --- [Animations] --- */
 @-webkit-keyframes wrap {

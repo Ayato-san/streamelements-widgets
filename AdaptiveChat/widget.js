@@ -59,6 +59,28 @@ class Message {
         this.#appendItems()
     }
 
+    /** Displays emotes instead of their text in the message */
+    addEmotes() {
+        const emotesName = []
+        const emotesUrl = []
+        this.data.emotes.forEach(emote => {
+            emotesName.push(emote.name)
+            emotesUrl.push(emote.urls[4])
+        })
+
+        const texts = this.#message.textContent.split(' ')
+        let j = 0
+        for (let i = 0; i < texts.length; i++) {
+            const text = texts[i].trim()
+            if (emotesName.includes(text)) {
+                texts[i] = `<img src='${emotesUrl[j]}' alt='${emotesName[j]}'/>`
+                j++
+            }
+        }
+
+        this.#message.innerHTML = texts.join(' ')
+    }
+
     /** Displays badges of the chater */
     addBadges() {
         for (let i = 0; i < FieldData.maxBadges && i < this.data.badges.length; i++) {
@@ -94,7 +116,6 @@ class Message {
                 this.#chat.remove()
             }, FieldData.lifetime * 1000)
     }
-}
 
 // --------------------
 //    Event Handlers
@@ -123,6 +144,7 @@ window.addEventListener('onEventReceived', obj => {
 function onMessage(event) {
     const msg = new Message(event.data, document.querySelector('chatbox'))
     if (FieldData.displayBadge) msg.addBadges()
+    if (FieldData.displayEmote) msg.addEmotes()
     msg.postMessage()
 }
 
