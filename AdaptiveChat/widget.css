@@ -70,10 +70,14 @@ chatbox.spin chat {
   -webkit-animation: spin {animationDuration}s ease-in-out;
           animation: spin {animationDuration}s ease-in-out;
 }
+chatbox.fade chat {
+  -webkit-animation: fade {animationDuration}s ease-in-out;
+          animation: fade {animationDuration}s ease-in-out;
+}
 chatbox chat {
   display: flex;
   flex-direction: column;
-  margin: 10px 0;
+  margin: {marginChat}px 0;
 }
 
 /* --- [Header container] --- */
@@ -158,4 +162,12 @@ chatbox chat message {
   100% {
     transform: rotateX(0deg);
   }
+}
+@-webkit-keyframes fade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes fade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
