@@ -1,6 +1,52 @@
 {
+    "googleFont": {
+        "label": "Select a Google font",
+        "group": "Message Styles",
+        "type": "googleFont",
+        "value": "Poppins"
+    },
+    "customFont": {
+        "label": "Custom Font Name",
+        "group": "Message Styles",
+        "type": "text",
+        "value": ""
+    },
+    "usernameSize": {
+        "label": "Username font size (px)",
+        "group": "Message Styles",
+        "type": "number",
+        "value": 16,
+        "step": 1,
+        "min": 1
+    },
+    "messageSize": {
+        "label": "Message font size (px)",
+        "group": "Message Styles",
+        "type": "number",
+        "value": 16,
+        "step": 1,
+        "min": 1
+    },
+    "messageBackground": {
+        "label": "Message Background color",
+        "group": "Messages Color",
+        "type": "colorpicker",
+        "value": "#0000007F"
+    },
+    "messageColor": {
+        "label": "Message color",
+        "group": "Messages Color",
+        "type": "colorpicker",
+        "value": "#FFFFFF"
+    },
+    "chatBackground": {
+        "label": "Header and border Background color",
+        "group": "Messages Color",
+        "type": "colorpicker",
+        "value": "#000000AF"
+    },
     "widgetName": {
-        "label": "[Adaptive Chat - v1.0.0]",
+        "label": "[Adaptive Chat - v1.0.1]",
         "group": "About",
         "type": "hidden",
         "value": "Adaptive Chat"

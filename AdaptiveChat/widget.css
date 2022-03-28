@@ -9,10 +9,47 @@
   box-sizing: border-box;
 }
 
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: '{customFont}', '{googleFont}', Arial, sans-serif;
+}
+
 /* --- [Widget Container] --- */
 chatbox {
   width: 100%;
   height: 100vh;
   display: flex;
   overflow: hidden;
+}
+chatbox chat {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+/* --- [Header container] --- */
+chatbox chat header {
+  background: {chatBackground};
+  font-size: {usernameSize}px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  align-items: center;
+}
+chatbox chat header username {
+  font-weight: bold;
+  margin: 0 5px;
+}
+
+/* --- [Message] --- */
+chatbox chat message {
+  color: {messageColor};
+  font-size: {messageSize}px;
+  padding: 2.5px 5px;
+  overflow: clip;
+  overflow-wrap: break-word;
+  background: {messageBackground};
+  vertical-align: top;
 }
