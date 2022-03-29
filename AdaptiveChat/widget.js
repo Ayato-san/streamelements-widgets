@@ -27,6 +27,7 @@ window.addEventListener('onWidgetLoad', obj => {
     chatbox.classList.add(FieldData.appearAnimation)
     chatbox.classList.add(FieldData.chatDirection)
     chatbox.classList.add(FieldData.cornerType)
+    chatbox.classList.add(FieldData.pseudoPosition)
     FieldData.displayBorder ? chatbox.classList.add('bordered') : null
 
     if (devMod) sendTestMessage(20)
