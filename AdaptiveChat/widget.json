@@ -43,6 +43,16 @@
             "top2Bottom": "Top to Bottom"
         }
     },
+    "pseudoPosition": {
+        "label": "Pseudo position",
+        "group": "Chat Styles",
+        "type": "dropdown",
+        "value": "left",
+        "options": {
+            "left": "Left",
+            "right": "Right"
+        }
+    },
     "marginChat": {
         "label": "Margin between each messages (px)",
         "group": "Chat Styles",

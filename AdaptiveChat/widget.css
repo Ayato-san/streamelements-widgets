@@ -90,6 +90,12 @@ chatbox chat header {
   padding-bottom: 0.2em;
   align-items: center;
 }
+chatbox.right chat header {
+  flex-direction: row-reverse;
+}
+chatbox.left chat header {
+  flex-direction: row;
+}
 chatbox chat header username {
   font-weight: bold;
   margin: 0 5px;
