@@ -135,6 +135,18 @@
         "step": 0.1,
         "min": 0
     },
+    "messageAlign": {
+        "label": "Message align",
+        "group": "Message Styles",
+        "type": "dropdown",
+        "value": "justify",
+        "options": {
+            "start": "Left",
+            "end": "Right",
+            "center": "Center",
+            "justify": "Justify"
+        }
+    },
     "displayEmote": {
         "label": "Display Emotes ?",
         "group": "Message Styles",
@@ -221,12 +233,12 @@
         "label": "Message life time (seconds)",
         "group": "Timing",
         "type": "number",
-        "value": 10,
+        "value": 600,
         "step": 1,
         "min": 0
     },
     "widgetName": {
-        "label": "[Adaptive Chat - v1.1.8]",
+        "label": "[Adaptive Chat - v1.1.10]",
         "group": "About",
         "type": "hidden",
         "value": "Adaptive Chat"
@@ -241,7 +253,7 @@
         "label": "Twitch - www.twitch.tv/ayat0_san_",
         "group": "About",
         "type": "hidden",
-        "value": "1.1.8"
+        "value": "1.1.10"
     },
     "widgetUpdateUrl": {
         "label": "Instagram - @ayat0_san",

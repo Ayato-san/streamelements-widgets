@@ -118,6 +118,7 @@ chatbox chat message {
   overflow-wrap: break-word;
   background: {messageBackground};
   vertical-align: top;
+  text-align: {messageAlign};
 }
 chatbox chat message img {
   height: 2em;
