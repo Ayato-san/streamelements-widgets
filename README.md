@@ -6,6 +6,8 @@ All the custom widgets I created for streamelements as my stream and orders evol
 
 ## widgets list
 
+-   [Demo](./demo) : test all of the streamelements environment
+
 ---
 
 ## usage
