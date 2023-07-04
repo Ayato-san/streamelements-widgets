@@ -1,0 +1,94 @@
+{
+    "someText": {
+        "type": "text",
+        "label": "Some Text",
+        "value": "Default text"
+    },
+    "someCheckbox": {
+        "type": "checkbox",
+        "label": "Some checkbox"
+    },
+    "someColorPicker": {
+        "type": "colorpicker",
+        "label": "Some color",
+        "value": "#0000FF"
+    },
+    "someNumber": {
+        "type": "number",
+        "label": "Count",
+        "value": 10,
+        "min": 0,
+        "max": 100,
+        "step": 1
+    },
+    "someSlider": {
+        "type": "slider",
+        "label": "Counter",
+        "value": 10,
+        "min": 0,
+        "max": 100,
+        "step": 1
+    },
+    "someDropdown": {
+        "type": "dropdown",
+        "label": "Choose an option:",
+        "value": "apple",
+        "options": {
+            "7": "Lucky number",
+            "blue": "Blue thing",
+            "apple": "Some apple"
+        }
+    },
+    "someImage": {
+        "type": "image-input",
+        "label": "Some Image"
+    },
+    "someVideo": {
+        "type": "video-input",
+        "label": "Some Video"
+    },
+    "someSound": {
+        "type": "sound-input",
+        "label": "Some Audio"
+    },
+    "someFont": {
+        "type": "googleFont",
+        "group": "Filters",
+        "label": "Select a font:",
+        "value": "Roboto"
+    },
+    "someButton": {
+        "type": "button",
+        "label": "Click me!",
+        "value": "Thanks"
+    },
+    "someHidden": {
+        "type": "hidden",
+        "label": "Some Hidden",
+        "value": "My Custom Widget"
+    },
+    "widgetVersion": {
+        "label": "Twitch - https://twitch.tv/ayat0_san_",
+        "group": "About",
+        "type": "hidden",
+        "value": "1.0"
+    },
+    "widgetName": {
+        "label": "[demo - v1.0]",
+        "group": "About",
+        "type": "hidden",
+        "value": "demo"
+    },
+    "widgetAuthor": {
+        "label": "Created by Ayato-san",
+        "group": "About",
+        "type": "hidden",
+        "value": "Ayato-san"
+    },
+    "widgetUpdateUrl": {
+        "label": "Instagram - @ayat0_san",
+        "group": "About",
+        "type": "hidden",
+        "value": "https://github.com/Ayato-san/streamelements-widgets/tree/main/demo"
+    }
+}
