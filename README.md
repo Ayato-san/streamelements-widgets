@@ -9,6 +9,7 @@ All the custom widgets I created for streamelements as my stream and orders evol
 -   [Demo](./demo) : test all of the streamelements environment
 -   [Chat](./chat) : a simple chat for twitch
 -   [Minimalism Chat](./minimalism-chat) : an other way to display twitch chat
+-   [Information Bar](./info-bar) : display latest information of the stream
 
 ---
 
